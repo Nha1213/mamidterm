@@ -1,8 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:project_midterm/screen/home_screen.dart';
+// import 'package:project_midterm/screen/home_screen.dart';
 import 'package:project_midterm/screen/splash_screen.dart';
-import 'package:project_midterm/service/account_service.dart';
+// import 'package:project_midterm/service/account_service.dart';
 void main() {
   runApp(
     DevicePreview(
