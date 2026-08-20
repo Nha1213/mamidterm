@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_midterm/screen/main_screen.dart';
 // import 'package:project_midterm/helper/form_login.dart';
-import 'package:project_midterm/screen/home_screen.dart';
+
 
 class LoadingAnimation extends StatefulWidget {
   const LoadingAnimation({super.key});
@@ -21,7 +22,7 @@ class _LoadingAnimationState extends State<LoadingAnimation> {
     if (!mounted) return;
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => MainScreen()),
       (route) => false,
     );
   }

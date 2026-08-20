@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_midterm/helper/form_login.dart';
+import 'package:project_midterm/screen/main_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,25 +13,38 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   bool _isExpanded = false;
 
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
   void init() async {
     await Future.delayed(Duration(seconds: 1));
     setState(() {
       _isExpanded = true;
     });
     await Future.delayed(Duration(seconds: 2));
-    if (!mounted) return;
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => FormLogin()),
-      (route) => false,
-    );
+    if(!mounted) return;
+    
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    final String? token = preferences.getString("token");
+    if(token != null){
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => MainScreen()),
+        (route) => false,
+      );
+    }
+    else{
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => FormLogin()),
+        (route) => false,
+      );
+    }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    init();
-  }
 
   @override
   Widget build(BuildContext context) {

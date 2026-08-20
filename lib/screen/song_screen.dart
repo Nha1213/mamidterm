@@ -3,46 +3,80 @@ import 'package:project_midterm/helper/music_card.dart';
 import 'package:project_midterm/helper/music_tranding.dart';
 import 'package:project_midterm/models/music_card_model.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class SongScreen extends StatefulWidget {
+  const SongScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SongScreen> createState() => _SongScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  // final List<IconData> _navIcons = [
-  //   Icons.home_rounded,
-  //   Icons.music_note_rounded,
-  //   Icons.person_rounded,
-  // ];
-
-  List<MusicCardModel> musicCards = [
-    MusicCardModel(
-      title: "Rap",
-      image: "assets/images/Rectangle2.png",
-      description: "Olivia Rodrigo",
-    ),
-    MusicCardModel(
-      title: "Rap",
-      image: "assets/images/Rectangle1.png",
-      description: "Olivia Rodrigo",
-    ),
-    MusicCardModel(
-      title: "Rap",
-      image: "assets/images/Rectangle2.png",
-      description: "Olivia Rodrigo",
-    ),
-    MusicCardModel(
-      title: "Rap",
-      image: "assets/images/Rectangle1.png",
-      description: "Olivia Rodrigo",
-    ),
-  ];
-
+class _SongScreenState extends State<SongScreen> {
   List<MusicCardModel> musicTrending = [
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
+    MusicCardModel(
+      title: "Rap",
+      image: "assets/images/Rectangle2.png",
+      description: "Olivia Rodrigo",
+    ),
     MusicCardModel(
       title: "Rap",
       image: "assets/images/Rectangle2.png",
@@ -120,42 +154,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          "Music",
+                          "Your Library",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
                           ),
                         ),
-                        Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF51485F), Color(0xFF302B38)],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
+                        // Right action buttons container
+                        Row(
+                          children: [
+                            _buildCircularIconButton(
+                              icon: Icons.search,
+                              onTap: () {},
                             ),
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                              color: const Color(0xFF625A6D),
-                              width: 0.5,
+                            const SizedBox(width: 10),
+                            _buildCircularIconButton(
+                              icon: Icons
+                                  .add, // Changed duplicate search icon to add/plus icon
+                              onTap: () {},
                             ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.3),
-                                blurRadius: 6,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          child: const Center(
-                            child: Icon(
-                              Icons.search,
-                              size: 17,
-                              color: Colors.white,
-                            ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
@@ -178,52 +197,36 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 22),
+                    const SizedBox(height: 30),
 
-                    // For You
-                    const Text(
-                      "For You",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    // Music Cards
-                    SizedBox(
-                      height: 200,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
+                    // Recent Text
+                    Container(
+                      margin: const EdgeInsets.only(left: 5),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          for (var card in musicCards)
-                            Padding(
-                              padding: const EdgeInsets.only(right: 14),
-                              child: MusicCard(musicCardModel: card),
+                          Icon(
+                            Icons.history, // or Icons.scroll
+                            color: Color.fromARGB(255, 219, 218, 218),
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            "Recent",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromARGB(255, 219, 218, 218),
                             ),
+                          ),
                         ],
                       ),
                     ),
 
-                    const SizedBox(height: 20),
-
-                    // Trending Now
-                    const Text(
-                      "Trending Now",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 30),
 
                     Expanded(
                       child: SizedBox(
-                        height: 365,
+                        height: 580,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5),
                           child: ListView.builder(
@@ -245,64 +248,38 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
 
-        // Custom Styled Bottom Navigation Bar
-        // bottomNavigationBar: Container(
-        //   // margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        //   decoration: BoxDecoration(
-        //     color: const Color(0xFF1E1C24).withOpacity(0.85),
-        //     borderRadius: BorderRadius.circular(40),
-        //     border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
-        //     boxShadow: [
-        //       BoxShadow(
-        //         color: Colors.black.withOpacity(0.4),
-        //         blurRadius: 16,
-        //         offset: const Offset(0, 8),
-        //       ),
-        //     ],
-        //   ),
-        //   child: BottomNavigationBar(
-        //     currentIndex: _selectedIndex,
-        //     onTap: (index) => setState(() => _selectedIndex = index),
-        //     backgroundColor: Colors.transparent,
-        //     elevation: 0,
-        //     showSelectedLabels: false,
-        //     showUnselectedLabels: false,
-        //     type: BottomNavigationBarType.fixed,
-        //     items: List.generate(_navIcons.length, (index) {
-        //       return BottomNavigationBarItem(
-        //         label: '',
-        //         icon: Icon(
-        //           _navIcons[index],
-        //           color: Colors.white.withOpacity(0.5),
-        //           size: 22,
-        //         ),
-        //         activeIcon: Container(
-        //           padding: const EdgeInsets.symmetric(
-        //             horizontal: 20,
-        //             vertical: 10,
-        //           ),
-        //           decoration: BoxDecoration(
-        //             borderRadius: BorderRadius.circular(30),
-        //             gradient: const LinearGradient(
-        //               colors: [Color(0xFF9D50BB), Color(0xFF3B82F6)],
-        //               begin: Alignment.centerLeft,
-        //               end: Alignment.centerRight,
-        //             ),
-        //             boxShadow: [
-        //               BoxShadow(
-        //                 color: const Color(0xFF3B82F6).withOpacity(0.35),
-        //                 blurRadius: 10,
-        //                 offset: const Offset(0, 4),
-        //               ),
-        //             ],
-        //           ),
-        //           child: Icon(_navIcons[index], color: Colors.white, size: 22),
-        //         ),
-        //       );
-        //     }),
-        //   ),
-        // ),
+  // helper icon button search and plus
+  Widget _buildCircularIconButton({
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(50),
+      child: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFF51485F), Color(0xFF302B38)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          shape: BoxShape.circle,
+          border: Border.all(color: const Color(0xFF625A6D), width: 0.5),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Center(child: Icon(icon, color: Colors.white, size: 18)),
       ),
     );
   }

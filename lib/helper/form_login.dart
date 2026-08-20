@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:project_midterm/helper/form_register.dart';
 import 'package:project_midterm/models/user_model.dart';
-import 'package:project_midterm/screen/home_screen.dart';
 import 'package:project_midterm/screen/loading_animation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -373,17 +372,17 @@ class _FormLoginState extends State<FormLogin> {
                     children: [
                       // Apple icon button
                       _buildSocialButton(
-                        "assets/images/icons/apple.png",
+                        "assets/icons/apple.png",
                       ), // Add paths
                       const SizedBox(width: 25),
                       // Google icon button
                       _buildSocialButton(
-                        "assets/images/icons/google.png",
+                        "assets/icons/google.png",
                       ), // Add paths
                       const SizedBox(width: 25),
                       // Facebook icon button
                       _buildSocialButton(
-                        "assets/images/icons/fb.png",
+                        "assets/icons/fb.png",
                       ), // Add paths
                     ],
                   ),
